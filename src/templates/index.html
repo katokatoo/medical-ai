@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical AI Diagnosis</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        .upload-box {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px dashed #3498db;
+            display: inline-block;
+            background-color: white;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        img {
+            margin-top: 15px;
+            max-width: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Medical Image Diagnosis</h2>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+
+        <div class="upload-box">
+            <input type="file" name="file" accept="image/*" onchange="previewImage(event)" required>
+            <br>
+            <img id="preview" src="" />
+        </div>
+
+        <br>
+
+        <button type="submit">Upload & Predict</button>
+
+    </form>
+
+</div>
+
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+        const img = document.getElementById('preview');
+        img.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+
+</body>
+</html>

@@ -5,17 +5,16 @@ venv/
 __pycache__/
 *.pyc
 
-# ===== 学習済みモデル =====
-*.pt
-*.pth
-models/
-
 # ===== データ =====
 data/
-
-# ===== Jupyter =====
-.ipynb_checkpoints/
 
 # ===== OS固有 =====
 .DS_Store
 Thumbs.db
+
+# ===== その他 =====
+cnn-1.py
+CLIpredict.py
+train-1.py
+test-1.py
+main-1.py

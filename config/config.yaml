@@ -1,0 +1,12 @@
+#実験設定
+training:
+  batch_size: 32
+  lr: 0.001
+  epochs: 20
+
+model:
+  threshold: 0.5
+
+paths:
+  model_dir: outputs/models
+  figure_dir: outputs/figures

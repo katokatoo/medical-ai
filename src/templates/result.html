@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagnosis Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        .result-box {
+            display: inline-block;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .benign {
+            color: green;
+        }
+
+        .malignant {
+            color: red;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Diagnosis Result</h2>
+
+    <div class="result-box">
+
+        {% if prediction == "Malignant" %}
+            <p class="malignant"><strong>Prediction: Malignant</strong></p>
+        {% else %}
+            <p class="benign"><strong>Prediction: Benign</strong></p>
+        {% endif %}
+
+        <p>Probability: {{ probability }}</p>
+
+    </div>
+
+    <a href="/">Back to Home</a>
+
+</div>
+
+</body>
+</html>
