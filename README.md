@@ -72,13 +72,13 @@ project/
 
 ## How to Run
 
-### 0. git,Dockerのインストール
-お使いのOS環境でGit,dockerをインストール
+### 0. Git,Dockerのインストール
+お使いのOS環境でGit,Dockerをインストール
 
 ### 1. リポジトリのコピー
 ```bash
 git clone https://github.com/katokatoo/medical-ai.git
-cd medical_ai
+cd medical-ai
 ```
 ### 2. Dockerで起動
 ```bash
