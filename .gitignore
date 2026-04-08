@@ -6,7 +6,9 @@ __pycache__/
 *.pyc
 
 # ===== データ =====
-data/
+raw
+dataset.py
+export_test_images.py
 
 # ===== OS固有 =====
 .DS_Store

@@ -38,20 +38,21 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 # templatesディレクトリのパスを設定
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+current_file_path = os.path.abspath(__file__) # /app/src/api/main.py
+api_dir = os.path.dirname(current_file_path)  # /app/src/api
+src_dir = os.path.dirname(api_dir)           # /app/src
+template_path = os.path.join(src_dir, "templates")
 
 # templates
-templates = Jinja2Templates(
-    directory=os.path.join(BASE_DIR, "templates")
-)
+templates = Jinja2Templates(directory=template_path)
 
 # root（HTML表示）
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-
     return templates.TemplateResponse(
-        "index.html",
-        {"request": request}
+        request=request, 
+        name="index.html", 
+        context={"request": request}
     )
 
 
@@ -85,8 +86,9 @@ async def predict_image(request: Request, file: UploadFile = File(...)):
         label = "Malignant" if pred == 1 else "Benign"
 
         return templates.TemplateResponse(
-            "result.html",
-            {
+            request=request,
+            name="result.html",
+            context={
                 "request": request,
                 "prediction": label,
                 "probability": round(prob, 4)
