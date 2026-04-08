@@ -37,8 +37,13 @@ async def lifespan(app: FastAPI):
 # FastAPIインスタンス生成
 app = FastAPI(lifespan=lifespan)
 
+# templatesディレクトリのパスを設定
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # templates
-templates = Jinja2Templates(directory="src/templates")
+templates = Jinja2Templates(
+    directory=os.path.join(BASE_DIR, "templates")
+)
 
 # root（HTML表示）
 @app.get("/", response_class=HTMLResponse)
